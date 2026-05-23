@@ -38,8 +38,9 @@ const AdminLayout = ({ children }) => {
         } md:translate-x-0`}
       >
         <div className="h-16 flex items-center justify-between border-b border-slate-800 px-6">
-          <Link to="/admin/dashboard" className="text-xl font-bold tracking-tight text-indigo-400 flex items-center space-x-2">
-            <span>RateStore Admin</span>
+          <Link to="/admin/dashboard" className="flex items-center space-x-2.5 text-lg font-bold tracking-tight text-indigo-400">
+            <img src="/logo.png" alt="StoreRate Logo" className="h-8 w-auto object-contain rounded" />
+            <span>Admin</span>
           </Link>
           <button
             onClick={() => setIsSidebarOpen(false)}

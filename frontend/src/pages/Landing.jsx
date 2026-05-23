@@ -29,8 +29,9 @@ const Landing = () => {
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
             <div className="flex items-center">
-              <Link to="/" className="text-2xl font-extrabold text-indigo-600 dark:text-indigo-400 tracking-tight">
-                StoreRate
+              <Link to="/" className="flex items-center space-x-2.5 text-4xl font-extrabold text-indigo-600 dark:text-indigo-400 tracking-tight">
+                <img src="/logo.png" alt="StoreRate Logo" className="h-8 w-auto object-contain rounded" />
+                {/* <span>StoreRate</span> */}
               </Link>
             </div>
 
@@ -281,8 +282,9 @@ const Landing = () => {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {/* Logo and tag line */}
             <div className="md:col-span-2 space-y-4">
-              <Link to="/" className="text-2xl font-extrabold text-indigo-600 dark:text-indigo-400 tracking-tight">
-                StoreRate
+              <Link to="/" className="flex items-center space-x-2.5 text-2xl font-extrabold text-indigo-600 dark:text-indigo-400 tracking-tight">
+                <img src="/logo.png" alt="StoreRate Logo" className="h-8 w-auto object-contain rounded" />
+                <span>StoreRate</span>
               </Link>
               <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed max-w-sm">
                 Empowering trust and accountability in local retail. A state-of-the-art secure rating solution connecting consumers and businesses.

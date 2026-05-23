@@ -32,30 +32,29 @@ const UserOwnerLayout = ({ children }) => {
             <div className="flex items-center">
               <Link
                 to={isUser ? '/stores' : '/owner/dashboard'}
-                className="text-2xl font-extrabold text-indigo-600 dark:text-indigo-400 tracking-tight"
+                className="flex items-center space-x-2.5 text-4xl font-extrabold text-indigo-600 dark:text-indigo-400 tracking-tight"
               >
-                StoreRate
+                <img src="/logo.png" alt="StoreRate Logo" className="h-8 w-auto object-contain rounded" />
+                {/* <span>StoreRate</span> */}
               </Link>
               <div className="hidden md:flex ml-8 space-x-6">
                 {isUser && (
                   <>
                     <Link
                       to="/stores"
-                      className={`inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium ${
-                        location.pathname === '/stores'
-                          ? 'border-indigo-500 text-slate-900 dark:text-slate-100'
-                          : 'border-transparent text-slate-500 dark:text-slate-400 hover:border-slate-300 dark:hover:border-slate-600 hover:text-slate-700 dark:hover:text-slate-200'
-                      }`}
+                      className={`inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium ${location.pathname === '/stores'
+                        ? 'border-indigo-500 text-slate-900 dark:text-slate-100'
+                        : 'border-transparent text-slate-500 dark:text-slate-400 hover:border-slate-300 dark:hover:border-slate-600 hover:text-slate-700 dark:hover:text-slate-200'
+                        }`}
                     >
                       Stores
                     </Link>
                     <Link
                       to="/profile"
-                      className={`inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium ${
-                        location.pathname === '/profile'
-                          ? 'border-indigo-500 text-slate-900 dark:text-slate-100'
-                          : 'border-transparent text-slate-500 dark:text-slate-400 hover:border-slate-300 dark:hover:border-slate-600 hover:text-slate-700 dark:hover:text-slate-200'
-                      }`}
+                      className={`inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium ${location.pathname === '/profile'
+                        ? 'border-indigo-500 text-slate-900 dark:text-slate-100'
+                        : 'border-transparent text-slate-500 dark:text-slate-400 hover:border-slate-300 dark:hover:border-slate-600 hover:text-slate-700 dark:hover:text-slate-200'
+                        }`}
                     >
                       Change Password
                     </Link>
@@ -65,21 +64,19 @@ const UserOwnerLayout = ({ children }) => {
                   <>
                     <Link
                       to="/owner/dashboard"
-                      className={`inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium ${
-                        location.pathname === '/owner/dashboard'
-                          ? 'border-indigo-500 text-slate-900 dark:text-slate-100'
-                          : 'border-transparent text-slate-500 dark:text-slate-400 hover:border-slate-300 dark:hover:border-slate-600 hover:text-slate-700 dark:hover:text-slate-200'
-                      }`}
+                      className={`inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium ${location.pathname === '/owner/dashboard'
+                        ? 'border-indigo-500 text-slate-900 dark:text-slate-100'
+                        : 'border-transparent text-slate-500 dark:text-slate-400 hover:border-slate-300 dark:hover:border-slate-600 hover:text-slate-700 dark:hover:text-slate-200'
+                        }`}
                     >
                       Store Dashboard
                     </Link>
                     <Link
                       to="/owner/profile"
-                      className={`inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium ${
-                        location.pathname === '/owner/profile'
-                          ? 'border-indigo-500 text-slate-900 dark:text-slate-100'
-                          : 'border-transparent text-slate-500 dark:text-slate-400 hover:border-slate-300 dark:hover:border-slate-600 hover:text-slate-700 dark:hover:text-slate-200'
-                      }`}
+                      className={`inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium ${location.pathname === '/owner/profile'
+                        ? 'border-indigo-500 text-slate-900 dark:text-slate-100'
+                        : 'border-transparent text-slate-500 dark:text-slate-400 hover:border-slate-300 dark:hover:border-slate-600 hover:text-slate-700 dark:hover:text-slate-200'
+                        }`}
                     >
                       Change Password
                     </Link>
@@ -129,21 +126,19 @@ const UserOwnerLayout = ({ children }) => {
                 <>
                   <Link
                     to="/stores"
-                    className={`block px-3 py-2 rounded-lg text-base font-medium ${
-                      location.pathname === '/stores'
-                        ? 'bg-indigo-50 dark:bg-indigo-950/50 text-indigo-600 dark:text-indigo-400'
-                        : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-slate-100'
-                    }`}
+                    className={`block px-3 py-2 rounded-lg text-base font-medium ${location.pathname === '/stores'
+                      ? 'bg-indigo-50 dark:bg-indigo-950/50 text-indigo-600 dark:text-indigo-400'
+                      : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-slate-100'
+                      }`}
                   >
                     Stores
                   </Link>
                   <Link
                     to="/profile"
-                    className={`block px-3 py-2 rounded-lg text-base font-medium ${
-                      location.pathname === '/profile'
-                        ? 'bg-indigo-50 dark:bg-indigo-950/50 text-indigo-600 dark:text-indigo-400'
-                        : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-slate-100'
-                    }`}
+                    className={`block px-3 py-2 rounded-lg text-base font-medium ${location.pathname === '/profile'
+                      ? 'bg-indigo-50 dark:bg-indigo-950/50 text-indigo-600 dark:text-indigo-400'
+                      : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-slate-100'
+                      }`}
                   >
                     Change Password
                   </Link>
@@ -153,21 +148,19 @@ const UserOwnerLayout = ({ children }) => {
                 <>
                   <Link
                     to="/owner/dashboard"
-                    className={`block px-3 py-2 rounded-lg text-base font-medium ${
-                      location.pathname === '/owner/dashboard'
-                        ? 'bg-indigo-50 dark:bg-indigo-950/50 text-indigo-600 dark:text-indigo-400'
-                        : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-slate-100'
-                    }`}
+                    className={`block px-3 py-2 rounded-lg text-base font-medium ${location.pathname === '/owner/dashboard'
+                      ? 'bg-indigo-50 dark:bg-indigo-950/50 text-indigo-600 dark:text-indigo-400'
+                      : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-slate-100'
+                      }`}
                   >
                     Store Dashboard
                   </Link>
                   <Link
                     to="/owner/profile"
-                    className={`block px-3 py-2 rounded-lg text-base font-medium ${
-                      location.pathname === '/owner/profile'
-                        ? 'bg-indigo-50 dark:bg-indigo-950/50 text-indigo-600 dark:text-indigo-400'
-                        : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-slate-100'
-                    }`}
+                    className={`block px-3 py-2 rounded-lg text-base font-medium ${location.pathname === '/owner/profile'
+                      ? 'bg-indigo-50 dark:bg-indigo-950/50 text-indigo-600 dark:text-indigo-400'
+                      : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-slate-100'
+                      }`}
                   >
                     Change Password
                   </Link>
