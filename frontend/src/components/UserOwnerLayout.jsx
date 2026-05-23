@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import ThemeToggle from './ThemeToggle';
@@ -7,6 +7,12 @@ const UserOwnerLayout = ({ children }) => {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  // Close mobile menu on path change
+  useEffect(() => {
+    setIsMenuOpen(false);
+  }, [location.pathname]);
 
   const handleLogout = () => {
     logout();
@@ -30,7 +36,7 @@ const UserOwnerLayout = ({ children }) => {
               >
                 StoreRate
               </Link>
-              <div className="ml-8 flex space-x-6">
+              <div className="hidden md:flex ml-8 space-x-6">
                 {isUser && (
                   <>
                     <Link
@@ -83,7 +89,7 @@ const UserOwnerLayout = ({ children }) => {
             </div>
 
             {/* Profile Info and Logout */}
-            <div className="flex items-center space-x-6">
+            <div className="flex items-center space-x-4 sm:space-x-6">
               <ThemeToggle />
               <div className="hidden sm:text-right sm:block ml-4">
                 <span className="block text-sm font-bold text-slate-900 dark:text-slate-100">{user?.name}</span>
@@ -93,18 +99,105 @@ const UserOwnerLayout = ({ children }) => {
               </div>
               <button
                 onClick={handleLogout}
-                className="px-4 py-2 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:bg-red-50 dark:hover:bg-red-900/30 hover:text-red-600 dark:hover:text-red-400 hover:border-red-200 dark:hover:border-red-800 text-sm font-medium rounded-lg transition-all cursor-pointer shadow-sm"
+                className="hidden sm:block px-4 py-2 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:bg-red-50 dark:hover:bg-red-900/30 hover:text-red-600 dark:hover:text-red-400 hover:border-red-200 dark:hover:border-red-800 text-sm font-medium rounded-lg transition-all cursor-pointer shadow-sm"
               >
                 Logout
+              </button>
+              {/* Mobile Hamburger toggle button */}
+              <button
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                className="md:hidden p-2 text-slate-600 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 focus:outline-none cursor-pointer"
+                aria-label="Toggle Navigation Menu"
+              >
+                <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  {isMenuOpen ? (
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                  ) : (
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
+                  )}
+                </svg>
               </button>
             </div>
           </div>
         </div>
+
+        {/* Mobile Menu Dropdown */}
+        {isMenuOpen && (
+          <div className="md:hidden border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 transition-colors duration-300 px-4 pt-2 pb-4 space-y-2 shadow-inner">
+            <div className="space-y-1">
+              {isUser && (
+                <>
+                  <Link
+                    to="/stores"
+                    className={`block px-3 py-2 rounded-lg text-base font-medium ${
+                      location.pathname === '/stores'
+                        ? 'bg-indigo-50 dark:bg-indigo-950/50 text-indigo-600 dark:text-indigo-400'
+                        : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-slate-100'
+                    }`}
+                  >
+                    Stores
+                  </Link>
+                  <Link
+                    to="/profile"
+                    className={`block px-3 py-2 rounded-lg text-base font-medium ${
+                      location.pathname === '/profile'
+                        ? 'bg-indigo-50 dark:bg-indigo-950/50 text-indigo-600 dark:text-indigo-400'
+                        : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-slate-100'
+                    }`}
+                  >
+                    Change Password
+                  </Link>
+                </>
+              )}
+              {isOwner && (
+                <>
+                  <Link
+                    to="/owner/dashboard"
+                    className={`block px-3 py-2 rounded-lg text-base font-medium ${
+                      location.pathname === '/owner/dashboard'
+                        ? 'bg-indigo-50 dark:bg-indigo-950/50 text-indigo-600 dark:text-indigo-400'
+                        : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-slate-100'
+                    }`}
+                  >
+                    Store Dashboard
+                  </Link>
+                  <Link
+                    to="/owner/profile"
+                    className={`block px-3 py-2 rounded-lg text-base font-medium ${
+                      location.pathname === '/owner/profile'
+                        ? 'bg-indigo-50 dark:bg-indigo-950/50 text-indigo-600 dark:text-indigo-400'
+                        : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-slate-100'
+                    }`}
+                  >
+                    Change Password
+                  </Link>
+                </>
+              )}
+            </div>
+            {/* User Info & Logout for Mobile */}
+            <div className="pt-4 border-t border-slate-200 dark:border-slate-800">
+              <div className="px-3 py-2 flex items-center justify-between">
+                <div>
+                  <span className="block text-sm font-bold text-slate-900 dark:text-slate-100">{user?.name}</span>
+                  <span className="block text-xs font-semibold text-indigo-600 dark:text-indigo-400 capitalize">
+                    {user?.role === 'STORE_OWNER' ? 'Store Owner' : 'Reviewer'}
+                  </span>
+                </div>
+                <button
+                  onClick={handleLogout}
+                  className="px-4 py-2 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:bg-red-50 dark:hover:bg-red-900/30 hover:text-red-600 dark:hover:text-red-400 hover:border-red-200 dark:hover:border-red-800 text-sm font-medium rounded-lg transition-all cursor-pointer shadow-sm"
+                >
+                  Logout
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
       </nav>
 
       {/* Main Page Area */}
       <main className="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="bg-white dark:bg-slate-900 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-800 p-6 sm:p-8 transition-colors duration-300">
+        <div className="bg-white dark:bg-slate-900 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-800 p-4 sm:p-8 transition-colors duration-300">
           {children}
         </div>
       </main>

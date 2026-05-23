@@ -69,21 +69,21 @@ const AdminUserDetail = () => {
           </div>
 
           <div className="space-y-4 text-sm">
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-1 sm:gap-4 border-b border-slate-50 sm:border-none pb-2 sm:pb-0">
               <span className="font-semibold text-slate-500">Account ID:</span>
-              <span className="col-span-2 text-slate-800 font-mono select-all">{userDetail.id}</span>
+              <span className="sm:col-span-2 text-slate-800 font-mono select-all break-all">{userDetail.id}</span>
             </div>
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-1 sm:gap-4 border-b border-slate-50 sm:border-none pb-2 sm:pb-0">
               <span className="font-semibold text-slate-500">Role:</span>
-              <span className="col-span-2">
+              <span className="sm:col-span-2">
                 <span className="inline-flex px-2 py-0.5 rounded text-xs font-semibold bg-indigo-50 text-indigo-700 border border-indigo-100 uppercase">
                   {userDetail.role}
                 </span>
               </span>
             </div>
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-1 sm:gap-4 border-b border-slate-50 sm:border-none pb-2 sm:pb-0">
               <span className="font-semibold text-slate-500">Registered On:</span>
-              <span className="col-span-2 text-slate-800">
+              <span className="sm:col-span-2 text-slate-800">
                 {new Date(userDetail.createdAt).toLocaleDateString(undefined, {
                   year: 'numeric',
                   month: 'long',
@@ -91,9 +91,9 @@ const AdminUserDetail = () => {
                 })}
               </span>
             </div>
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-1 sm:gap-4">
               <span className="font-semibold text-slate-500">Address:</span>
-              <span className="col-span-2 text-slate-800 leading-relaxed">{userDetail.address || 'Not Provided'}</span>
+              <span className="sm:col-span-2 text-slate-800 leading-relaxed">{userDetail.address || 'Not Provided'}</span>
             </div>
           </div>
         </div>

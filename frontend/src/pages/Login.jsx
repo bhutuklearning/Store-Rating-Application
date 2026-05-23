@@ -43,8 +43,8 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-slate-50 dark:bg-slate-950 py-12 px-4 sm:px-6 lg:px-8 font-sans transition-colors duration-300 relative">
-      <div className="absolute top-6 left-6">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-slate-50 dark:bg-slate-950 py-12 px-4 sm:px-6 lg:px-8 font-sans transition-colors duration-300">
+      <div className="w-full max-w-md flex justify-between items-center mb-6">
         <Link 
           to="/" 
           className="flex items-center text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
@@ -54,11 +54,9 @@ const Login = () => {
           </svg>
           Back to Home
         </Link>
-      </div>
-      <div className="absolute top-6 right-6">
         <ThemeToggle />
       </div>
-      <div className="max-w-md w-full space-y-8 bg-white dark:bg-slate-900 p-8 rounded-2xl shadow-lg border border-slate-100 dark:border-slate-800 transition-colors duration-300">
+      <div className="max-w-md w-full space-y-8 bg-white dark:bg-slate-900 p-6 sm:p-8 rounded-2xl shadow-lg border border-slate-100 dark:border-slate-800 transition-colors duration-300">
         <div>
           <h2 className="mt-2 text-center text-3xl font-extrabold text-slate-900 dark:text-white">
             Welcome Back
