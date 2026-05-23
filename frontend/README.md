@@ -33,20 +33,36 @@ This directory contains the user interface client for the Store Rating and Asses
 ## 3. Core Pages & Dashboards
 
 ### Authentication Screens
+<p align="center">
+  <img src="../images/LoginPage.png" alt="Login Page" width="800" />
+</p>
+
 * **Login & Register**: Entry screens featuring real-time client-side checks matching validation constraints set on the server (e.g., password criteria, name length requirements).
 
 ### Administrator Panels
+<p align="center">
+  <img src="../images/AdminPanel-Users.png" alt="Admin Users Panel" width="800" />
+</p>
+
 * **Admin Dashboard**: Aggregated metadata screen presenting key metrics (total system users, active stores, ratings).
 * **Users List**: Dynamic user management grid displaying Customers, Store Owners, and Administrators (decorated with a rose-pink role badge). Supports multi-field query filters (name, email, address, role) and dynamic column sorting.
 * **User Profile Detail**: Inspection page showcasing specific account configurations, owned store profile, and performance metrics.
 * **Stores list**: View listing of registered stores. Administrators can create a new store and assign it to an owner user, enforcing that the recipient holds the `STORE_OWNER` role.
 
 ### Store Owner Dashboard
+<p align="center">
+  <img src="../images/StoreOwnerPage.png" alt="Store Owner Dashboard" width="800" />
+</p>
+
 * **Performance Overview**: Features calculated average ratings.
 * **Customer Review Log**: Tabular overview displaying customer reviews, containing the customer's name, email, individual rating score, and date of submission.
 * **Owner Profile**: Settings view to update security credentials.
 
 ### Customer Interface
+<p align="center">
+  <img src="../images/UserPage.png" alt="Customer Interface" width="800" />
+</p>
+
 * **Stores Hub**: Interactive catalog showing stores and average scores. Allows users to submit or dynamically update their rating (1–5 stars) via an interactive interface.
 * **User Profile**: Account details sheet with credentials update form.
 

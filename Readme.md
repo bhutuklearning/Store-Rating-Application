@@ -4,24 +4,40 @@
   <img src="frontend/public/logo.png" alt="StoreRate Logo" width="400" />
 </p>
 
-A production-ready, full-stack application designed to facilitate store evaluations, rating aggregations, and user profile management. Built using Node.js, Express, Prisma ORM, PostgreSQL (via Neon DB), React, and Tailwind CSS, the system features a robust role-based access control (RBAC) architecture separating Administrators, Store Owners, and Users (Customers) and adding to that this web app is responsive.
+A production-ready, full-stack application designed to facilitate store evaluations, rating aggregations, and user profile management. Built using Node.js, Express, Prisma ORM, PostgreSQL (via Neon DB), React, and Tailwind CSS, the system features a robust role-based access control (RBAC) architecture separating Administrators, Store Owners, and Users (Customers) and adding to that this web app is responsive and supports .
 
 ---
 
 ## 1. Core Features
 
+<p align="center">
+  <img src="images/LandingPage.png" alt="Landing Page" width="800" />
+</p>
+
 ### Administrator Dashboard & Management
+<p align="center">
+  <img src="images/AdminPanel-Dashboard.png" alt="Admin Dashboard" width="800" />
+</p>
+
 * **System Analytics**: High-level system statistics tracking metrics such as total users, stores, and ratings.
 * **User Management**: Unified interface to monitor, search, filter, and sort non-admin accounts (Customers and Store Owners). Administrators can register new users of any role.
 * **Store Management**: Administration panel to register new stores, assign them to verified Store Owners (enforcing unique assignments), and track performance.
 * **Granular User Details**: Deep-dive user profile inspector displaying user telemetry, account metrics, and associated store analytics.
 
 ### Store Owner Portal
+<p align="center">
+  <img src="images/StoreOwnerPage.png" alt="Store Owner Portal" width="800" />
+</p>
+
 * **Performance Telemetry**: Centralized dashboard showcasing real-time store ratings, overall average scores, and performance trends.
 * **Customer Feedback Feed**: Detailed tabular view of all customer reviews containing reviewer identity (name, email), rating values (1–5), and timestamps.
 * **Profile & Security**: Self-service area to view store configuration, personal information, and update authentication credentials.
 
 ### Customer (User) Portal
+<p align="center">
+  <img src="images/UserPage.png" alt="Customer Portal" width="800" />
+</p>
+
 * **Store Discovery**: Interactive list of stores with computed average ratings and live search/filter operations by name or location.
 * **Feedback Engine**: Star-rating submission system (1 to 5 stars). Database-level upsert logic prevents duplicate entries, seamlessly transitioning between submissions and updates.
 * **Profile Management**: Profile review and secure password modification features.
