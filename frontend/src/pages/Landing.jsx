@@ -40,7 +40,7 @@ const Landing = () => {
                 Features
               </a>
               <a href="#about" className="text-slate-600 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
-                About System
+                About
               </a>
             </nav>
 
@@ -159,7 +159,7 @@ const Landing = () => {
             Assessment
           </span>
         </h1>
-        
+
         <p className="max-w-2xl text-lg md:text-xl text-slate-600 dark:text-slate-300 mb-10 leading-relaxed">
           The premier platform for transparent, secure, and authenticated store evaluations.
           Join our ecosystem to rate experiences or manage your business reputation.
@@ -187,7 +187,7 @@ const Landing = () => {
                   <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd"></path>
                 </svg>
               </Link>
-              
+
               <Link
                 to="/login"
                 className="inline-flex items-center justify-center px-8 py-3.5 text-base font-bold text-slate-700 dark:text-slate-200 transition-all duration-200 bg-white dark:bg-slate-800/50 border border-slate-300 dark:border-slate-700 rounded-full hover:bg-slate-50 dark:hover:bg-slate-800 focus:outline-none backdrop-blur-sm w-full sm:w-auto hover:shadow-md"
@@ -205,7 +205,7 @@ const Landing = () => {
           <h2 className="text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">Engineered for Reliability</h2>
           <p className="text-slate-500 dark:text-slate-400 mt-2">A high-integrity feedback cycle linking consumers, operators, and sysadmins.</p>
         </div>
-        
+
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-left">
           <div className="bg-white/60 dark:bg-slate-800/40 backdrop-blur-md border border-slate-200 dark:border-slate-700/50 p-8 rounded-3xl hover:-translate-y-1 transition-transform duration-300 shadow-sm">
             <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900/50 text-blue-600 dark:text-blue-400 rounded-2xl flex items-center justify-center mb-6">
@@ -214,7 +214,7 @@ const Landing = () => {
             <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3">Secure & Verified</h3>
             <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">Role-based access controls ensure that only authenticated customers can leave ratings.</p>
           </div>
-          
+
           <div className="bg-white/60 dark:bg-slate-800/40 backdrop-blur-md border border-slate-200 dark:border-slate-700/50 p-8 rounded-3xl hover:-translate-y-1 transition-transform duration-300 shadow-sm">
             <div className="w-12 h-12 bg-purple-100 dark:bg-purple-900/50 text-purple-600 dark:text-purple-400 rounded-2xl flex items-center justify-center mb-6">
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"></path></svg>
@@ -288,7 +288,7 @@ const Landing = () => {
                 Empowering trust and accountability in local retail. A state-of-the-art secure rating solution connecting consumers and businesses.
               </p>
             </div>
-            
+
             {/* Platform Links */}
             <div>
               <h4 className="text-xs font-bold uppercase tracking-wider text-slate-900 dark:text-white mb-4">Platform</h4>
