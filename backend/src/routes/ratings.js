@@ -1,7 +1,7 @@
 import { Router } from 'express';
 import { body, validationResult } from 'express-validator';
-import prisma from '../utils/prisma.js';
 import { authMiddleware, requireRole } from '../middleware/auth.js';
+import { upsertRating } from '../controllers/ratingsController.js';
 
 const router = Router();
 
@@ -25,38 +25,6 @@ const ratingValidation = [
 ];
 
 // POST / - Submit or update (upsert) a rating for a store
-router.post('/', ratingValidation, async (req, res, next) => {
-  try {
-    const { storeId, value } = req.body;
-    const userId = req.user.id;
-
-    // Check if store exists
-    const store = await prisma.store.findUnique({ where: { id: storeId } });
-    if (!store) {
-      return res.status(404).json({ message: 'Store not found' });
-    }
-
-    const rating = await prisma.rating.upsert({
-      where: {
-        userId_storeId: {
-          userId,
-          storeId,
-        },
-      },
-      update: {
-        value,
-      },
-      create: {
-        userId,
-        storeId,
-        value,
-      },
-    });
-
-    res.status(200).json(rating);
-  } catch (error) {
-    next(error);
-  }
-});
+router.post('/', ratingValidation, upsertRating);
 
 export default router;
