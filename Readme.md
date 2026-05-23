@@ -4,7 +4,7 @@
   <img src="frontend/public/logo.png" alt="StoreRate Logo" width="400" />
 </p>
 
-A production-ready, full-stack application designed to facilitate store evaluations, rating aggregations, and user profile management. Built using Node.js, Express, Prisma ORM, PostgreSQL (via Neon DB), React, and Tailwind CSS, the system features a robust role-based access control (RBAC) architecture separating Administrators, Store Owners, and Users (Customers) and adding to that this web app is responsive and supports .
+A production-ready, full-stack application designed to facilitate store evaluations, rating aggregations, and user profile management. Built using Node.js, Express, Prisma ORM, PostgreSQL (via Neon DB), React, and Tailwind CSS, the system features a robust role-based access control (RBAC) architecture separating Administrators, Store Owners, and Users (Customers) and adding to that this web app is responsive and supports light and dark theme.
 
 ---
 
