@@ -95,7 +95,7 @@ const AdminUsers = () => {
 
       {/* Action Header */}
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
-        <h2 className="text-xl font-bold text-slate-800">Non-Admin User Directory</h2>
+        <h2 className="text-xl font-bold text-slate-800">User Directory</h2>
         <button
           onClick={() => {
             setModalError('');
@@ -150,11 +150,12 @@ const AdminUsers = () => {
               name="role"
               value={filters.role}
               onChange={handleFilterChange}
-              className="w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 bg-white"
+              className="w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 bg-white dark:bg-slate-800 dark:border-slate-700 text-slate-900 dark:text-slate-100"
             >
               <option value="">All Roles</option>
               <option value="USER">User</option>
               <option value="STORE_OWNER">Store Owner</option>
+              <option value="ADMIN">System Administrator</option>
             </select>
           </div>
         </div>
@@ -221,12 +222,14 @@ const AdminUsers = () => {
                     <td className="px-6 py-4">
                       <span
                         className={`inline-flex px-2 py-1 rounded text-xs font-semibold ${
-                          u.role === 'STORE_OWNER'
-                            ? 'bg-purple-50 text-purple-700 border border-purple-100'
-                            : 'bg-indigo-50 text-indigo-700 border border-indigo-100'
+                          u.role === 'ADMIN'
+                            ? 'bg-rose-50 text-rose-700 border border-rose-100 dark:bg-rose-950/30 dark:text-rose-400 dark:border-rose-900/50'
+                            : u.role === 'STORE_OWNER'
+                            ? 'bg-purple-50 text-purple-700 border border-purple-100 dark:bg-purple-950/30 dark:text-purple-400 dark:border-purple-900/50'
+                            : 'bg-indigo-50 text-indigo-700 border border-indigo-100 dark:bg-indigo-950/30 dark:text-indigo-400 dark:border-indigo-900/50'
                         }`}
                       >
-                        {u.role}
+                        {u.role === 'ADMIN' ? 'ADMIN' : u.role}
                       </span>
                     </td>
                   </tr>

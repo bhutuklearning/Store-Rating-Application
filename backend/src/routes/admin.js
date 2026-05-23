@@ -133,9 +133,7 @@ router.get('/users', async (req, res, next) => {
   try {
     const { name, email, address, role, sortBy, sortOrder } = req.query;
 
-    const where = {
-      role: { not: 'ADMIN' },
-    };
+    const where = {};
 
     if (name) {
       where.name = { contains: name, mode: 'insensitive' };
@@ -146,7 +144,7 @@ router.get('/users', async (req, res, next) => {
     if (address) {
       where.address = { contains: address, mode: 'insensitive' };
     }
-    if (role && role !== 'ADMIN') {
+    if (role) {
       where.role = role;
     }
 
