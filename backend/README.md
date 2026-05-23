@@ -7,6 +7,7 @@ This directory houses the core RESTful API server for the Store Rating and Asses
 ## 1. Technologies & Architecture
 
 * **Framework**: Node.js & Express (ES Modules format).
+* **Architecture Pattern**: Decoupled MVC-style design splitting routing/validation definitions (`src/routes/`) from business logic execution controllers (`src/controllers/`).
 * **ORM**: Prisma Client utilizing custom connection pooling via `@prisma/adapter-pg` and standard PostgreSQL driver (`pg`).
 * **Database**: Hosted Cloud PostgreSQL (Neon DB).
 * **Security & Auth**: Stateless JWT auth (`jsonwebtoken`) with client-side credential encryption via `bcryptjs`.
@@ -31,7 +32,7 @@ All requests must set the header `Content-Type: application/json`. Authorized ro
 * `GET /dashboard`: Fetches overall counts for users, stores, and ratings.
 * `POST /users`: Provisions a new account under any role (`USER`, `STORE_OWNER`, `ADMIN`).
   * **Payload**: `{ "name": "...", "email": "...", "password": "...", "address": "...", "role": "..." }`
-* `GET /users`: Retrieves non-admin users. Supports pagination/filtering by `name`, `email`, `address`, and `role`, and sorting by `name`, `email`, `role`, or `createdAt`.
+* `GET /users`: Retrieves all users in the system (including Administrators, Store Owners, and Customers). Supports pagination/filtering by `name`, `email`, `address`, and `role`, and sorting by `name`, `email`, `role`, or `createdAt`.
 * `GET /users/:id`: Returns detailed profile information for a user, including their owned store configuration and computed metrics.
 * `POST /stores`: Registers a new store and binds it to a unique store owner.
   * **Payload**: `{ "name": "...", "email": "...", "address": "...", "ownerId": "..." }`
@@ -65,7 +66,7 @@ Configure a `.env` file in the root of this directory:
 
 ```env
 DATABASE_URL="postgresql://<username>:<password>@<host>/<database>?sslmode=require"
-PORT=5000
+PORT=8000
 JWT_SECRET="your-jwt-signing-secret"
 ```
 

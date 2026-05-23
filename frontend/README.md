@@ -9,6 +9,8 @@ This directory contains the user interface client for the Store Rating and Asses
 * **Framework**: React 19 utilizing Context API for session orchestration and custom hooks for component decoupling.
 * **Build tool**: Vite 8 for fast build optimization and instant module reloading.
 * **Styling Engine**: Tailwind CSS v4 featuring post-processed styling rules.
+* **Theme System**: Custom light/dark mode configuration using React Context (`ThemeContext`) storing preference in local storage and matching system preference by default, toggled via a Sun/Moon visual switch component (`ThemeToggle.jsx`).
+* **Layout Adaptability & Mobile Responsiveness**: Dedicated layout implementations (`AdminLayout.jsx` and `UserOwnerLayout.jsx`) providing mobile-responsive elements such as collapsible side drawers and accordion navigation systems.
 * **Form validation**: React Hook Form 7 to prevent unnecessary DOM re-renders during form state updates.
 * **Routing**: React Router Dom 7 implementing sub-routing and layout shells.
 * **HTTP Client**: Axios with global configuration and request interceptors to automatically bind JWT Bearer headers to outgoing API calls.
@@ -18,8 +20,11 @@ This directory contains the user interface client for the Store Rating and Asses
 ## 2. Directory Layout and Architecture
 
 * **[src/context/AuthContext.jsx](src/context/AuthContext.jsx)**: Houses login, logout, validation states, and caches session payloads in `localStorage`.
+* **[src/context/ThemeContext.jsx](src/context/ThemeContext.jsx)**: Provides dark/light theme state tracking, auto-detecting system preference and synchronizing state with local storage.
 * **[src/components/ProtectedRoute.jsx](src/components/ProtectedRoute.jsx)**: A layout route guard that blocks unauthorized access, matching user roles against a whitelist (e.g. `allowedRoles={['ADMIN']}`).
-* **[src/components/AdminLayout.jsx](src/components/AdminLayout.jsx) & [UserOwnerLayout.jsx](src/components/UserOwnerLayout.jsx)**: Global UI page shells wrapping nested sub-pages, providing navigation, headers, and logout controls.
+* **[src/components/AdminLayout.jsx](src/components/AdminLayout.jsx)**: Global UI dashboard shell for Administrators. Renders a fixed sidebar on desktop screen sizes and a toggleable, overlay-driven navigation drawer on mobile viewports.
+* **[src/components/UserOwnerLayout.jsx](src/components/UserOwnerLayout.jsx)**: Global UI shell for Customers and Store Owners. Employs a collapsible accordion navigation system optimized for smaller viewports.
+* **[src/components/ThemeToggle.jsx](src/components/ThemeToggle.jsx)**: A Sun/Moon mode-switch component.
 * **[src/pages/](src/pages/)**: Contains specific page components for dashboards, profiles, authentication entrypoints, and records tables.
 * **[src/utils/axiosInstance.js](src/utils/axiosInstance.js)**: Pre-configured Axios instance that automatically retrieves the JWT authorization token and attaches it to request headers.
 
@@ -32,7 +37,7 @@ This directory contains the user interface client for the Store Rating and Asses
 
 ### Administrator Panels
 * **Admin Dashboard**: Aggregated metadata screen presenting key metrics (total system users, active stores, ratings).
-* **Users List**: Dynamic user management grid. Supports search by name, email, and address, role filters, and column sorting.
+* **Users List**: Dynamic user management grid displaying Customers, Store Owners, and Administrators (decorated with a rose-pink role badge). Supports multi-field query filters (name, email, address, role) and dynamic column sorting.
 * **User Profile Detail**: Inspection page showcasing specific account configurations, owned store profile, and performance metrics.
 * **Stores list**: View listing of registered stores. Administrators can create a new store and assign it to an owner user, enforcing that the recipient holds the `STORE_OWNER` role.
 
@@ -53,7 +58,7 @@ This directory contains the user interface client for the Store Rating and Asses
 Ensure that the client can reach the backend server. Create a `.env` or `.env.local` file inside the `frontend/` root:
 
 ```env
-VITE_API_URL="http://localhost:5000"
+VITE_API_URL="http://localhost:8000"
 ```
 
 ### Installation

@@ -29,17 +29,19 @@ A production-ready, full-stack application designed to facilitate store evaluati
 The codebase utilizes a modern stack selected for high performance, type safety, and clean separation of concerns:
 
 ### Backend
-* **Runtime & Framework**: Node.js & Express.js for a lightweight, modular REST API.
+* **Runtime & Framework**: Node.js & Express.js (ES Modules format).
+* **Architecture Pattern**: Decoupled MVC-style design splitting routing/validation definitions (`src/routes`) from business logic execution controllers (`src/controllers`).
 * **Database Interface**: Prisma ORM for type-safe database queries, declarative schema design, and migration tracking.
-* **Database engine**: PostgreSQL, hosted via Neon DB with pooled connection routing.
+* **Database Engine**: PostgreSQL, hosted via Neon DB with pooled connection routing.
 * **Authentication**: JSON Web Token (JWT) architecture for stateless session management.
 * **Security & Encryption**: bcryptjs for multi-round secure password hashing.
 * **Validation**: Express-validator middleware for robust request validation and defense against injection.
 
 ### Frontend
-* **Core library**: React 19 leveraging modern hooks, context providers, and component lifecycles.
+* **Core Library**: React 19 leveraging modern hooks, context providers, and component lifecycles.
 * **Build Engine**: Vite 8 for optimized hot module replacement (HMR) and optimized build bundles.
 * **Styling**: Tailwind CSS v4 for optimized utility utility styling and native CSS variable generation.
+* **Theme System**: Custom light/dark mode configuration using React Context (`ThemeContext`) storing preference in local storage and matching system preference by default.
 * **Routing**: React Router Dom 7 implementing layout routes, path parametrization, and secure navigation guards.
 * **State & Form Management**: React Hook Form 7 for optimized, re-render-free form validations.
 * **HTTP Client**: Axios with request interceptors to automatically append JWT authorization headers.
@@ -120,15 +122,21 @@ project/
 │   │   ├── schema.prisma           # Prisma database schema definition
 │   │   └── seed.js                 # Initial admin seeding script
 │   ├── src/
+│   │   ├── controllers/            # Controller layer containing business logic
+│   │   │   ├── adminController.js  # Admin metrics and account management logic
+│   │   │   ├── authController.js   # User registration, login and settings logic
+│   │   │   ├── ownerController.js  # Store owner analytics dashboard logic
+│   │   │   ├── ratingsController.js# Rating submission and update logic
+│   │   │   └── storesController.js # Stores query logic for consumers
 │   │   ├── middleware/
 │   │   │   ├── auth.js             # Authentication and authorization guards
 │   │   │   └── errorHandler.js     # Centralized Express error handler
 │   │   ├── routes/
-│   │   │   ├── admin.js            # Admin metrics, user, and store management
-│   │   │   ├── auth.js             # Registration, login, and security routes
-│   │   │   ├── owner.js            # Store owner specific analytics
-│   │   │   ├── ratings.js          # Rating submission logic
-│   │   │   └── stores.js           # Public and customer store listings
+│   │   │   ├── admin.js            # Admin routes definition
+│   │   │   ├── auth.js             # Auth routes definition
+│   │   │   ├── owner.js            # Store owner routes definition
+│   │   │   ├── ratings.js          # Rating routes definition
+│   │   │   └── stores.js           # Public stores routes definition
 │   │   ├── utils/
 │   │   │   └── prisma.js           # Prisma client initialization with pg adapter
 │   │   ├── index.js                # App configuration and entry point
@@ -140,16 +148,19 @@ project/
     ├── public/                     # Static frontend assets
     ├── src/
     │   ├── components/
-    │   │   ├── AdminLayout.jsx     # Dashboard shell for Administrators
+    │   │   ├── AdminLayout.jsx     # Responsive dashboard shell for Administrators
     │   │   ├── ProtectedRoute.jsx  # Route guard for RBAC protection
-    │   │   └── UserOwnerLayout.jsx # Application shell for Customers and Owners
+    │   │   ├── ThemeToggle.jsx     # Sun/moon toggle switch for dark/light themes
+    │   │   └── UserOwnerLayout.jsx # Responsive shell for Customers and Owners
     │   ├── context/
-    │   │   └── AuthContext.jsx     # Global authentication and session state
+    │   │   ├── AuthContext.jsx     # Global authentication and session state
+    │   │   └── ThemeContext.jsx    # Theme toggle state provider
     │   ├── pages/
     │   │   ├── AdminDashboard.jsx  # System statistics and aggregates
     │   │   ├── AdminStores.jsx     # Store creation and owner assignment
     │   │   ├── AdminUserDetail.jsx # Administrator detailed user inspector
     │   │   ├── AdminUsers.jsx      # Multi-field filtering user management
+    │   │   ├── Landing.jsx         # Sticky header-equipped public landing page
     │   │   ├── Login.jsx           # Portal access gate
     │   │   ├── OwnerDashboard.jsx  # Owner store telemetry dashboard
     │   │   ├── OwnerProfile.jsx    # Store owner profile settings
@@ -190,7 +201,7 @@ project/
 ### Admin Dashboard and Actions (Requires `ADMIN` role)
 * `GET /api/admin/dashboard` - Fetches total counts for Users, Stores, and Ratings.
 * `POST /api/admin/users` - Creates a new account with any specified role (`USER`, `STORE_OWNER`, or `ADMIN`).
-* `GET /api/admin/users` - Lists all non-admin users with query filters (name, email, address, role) and sorting.
+* `GET /api/admin/users` - Lists all users (including Administrators, Store Owners, and Customers) with query filters (name, email, address, role) and sorting.
 * `GET /api/admin/users/:id` - Fetches a specific user's comprehensive details and associated store metadata.
 * `POST /api/admin/stores` - Creates a store and maps it to a unique user having the `STORE_OWNER` role.
 * `GET /api/admin/stores` - Retrieves all stores with their calculated average ratings and owner info.
@@ -223,7 +234,7 @@ project/
 3. Create a `.env` file in the root of the `backend/` directory and configure the environment variables:
    ```env
    DATABASE_URL="your-postgresql-connection-string"
-   PORT=5000
+   PORT=8000
    JWT_SECRET="your-secure-jwt-signature-key"
    ```
 
@@ -249,7 +260,7 @@ project/
    ```
 3. Create a `.env` or `.env.local` file in the `frontend/` directory:
    ```env
-   VITE_API_URL="http://localhost:5000"
+   VITE_API_URL="http://localhost:8000"
    ```
 
 ---
@@ -262,7 +273,7 @@ project/
    ```bash
    npm run dev
    ```
-   The API server will launch, defaulting to port `5000`.
+   The API server will launch, defaulting to port `8000`.
 
 2. **Start the Frontend Development Server**:
    From the `frontend/` directory, execute:
@@ -277,3 +288,21 @@ project/
      * **Email**: `admin@admin.com`
      * **Password**: `Admin@123`
    * Use the Administrator panel to create users with the role of `STORE_OWNER` or `USER` to test the corresponding dashboards.
+
+---
+
+## 9. Layouts, Theme, and Responsiveness
+
+### Theme Context System
+The application implements a global theme system via React Context (`ThemeContext`). Key mechanics include:
+* **Default Mode Detection**: Respects system preferences (dark/light) on initial launch.
+* **State Persistence**: Theme preference is synchronized and stored in `localStorage` for session persistence.
+* **Visual Toggle**: A lightweight Sun/Moon switch component (`ThemeToggle.jsx`) allows instantaneous styling shifts.
+* **Engine Integration**: Integrates directly with Tailwind CSS v4's class-based dark mode engine.
+
+### Layout Adaptability & Mobile Responsiveness
+All screens and views are optimized for responsive display across mobile, tablet, and desktop viewports:
+* **Admin Layout (`AdminLayout.jsx`)**: Deploys a full sidebar menu on desktop screens. On smaller screens (mobile viewports), the layout automatically shifts to a toggleable hamburger-menu drawer, conserving layout space while retaining full usability.
+* **Customer and Owner Layout (`UserOwnerLayout.jsx`)**: Incorporates an accordion-style, collapsible navigation header that adapts seamlessly to screen resizing.
+* **Landing Page (`Landing.jsx`)**: Styled with a sticky glassmorphic navigation header and structure-rich footer, providing an elegant and responsive entry point for authenticated and unauthenticated users alike.
+* **Admin User Directory (`AdminUsers.jsx`)**: Displays administrators alongside other users, complete with a distinctive rose badge for easy identification.
