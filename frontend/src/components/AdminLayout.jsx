@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import ThemeToggle from './ThemeToggle';
 
 const AdminLayout = ({ children }) => {
   const { user, logout } = useAuth();
@@ -15,9 +16,9 @@ const AdminLayout = ({ children }) => {
   const isActive = (path) => location.pathname === path;
 
   return (
-    <div className="flex h-screen bg-slate-50 text-slate-800 font-sans">
+    <div className="flex h-screen bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-200 font-sans transition-colors duration-300">
       {/* Sidebar */}
-      <aside className="w-64 bg-slate-900 text-white flex flex-col shadow-xl">
+      <aside className="w-64 bg-slate-900 dark:bg-slate-900/90 text-white flex flex-col shadow-xl border-r border-slate-800">
         <div className="h-16 flex items-center justify-center border-b border-slate-800 px-6">
           <Link to="/admin/dashboard" className="text-xl font-bold tracking-tight text-indigo-400 flex items-center space-x-2">
             <span>RateStore Admin</span>
@@ -60,21 +61,22 @@ const AdminLayout = ({ children }) => {
       {/* Main Content Area */}
       <div className="flex-1 flex flex-col overflow-hidden">
         {/* Top Navbar */}
-        <header className="h-16 bg-white border-b border-slate-200 flex items-center justify-between px-8 shadow-sm">
-          <div className="text-lg font-semibold text-slate-700">
+        <header className="h-16 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between px-8 shadow-sm transition-colors duration-300">
+          <div className="text-lg font-semibold text-slate-700 dark:text-slate-200">
             {isActive('/admin/dashboard') && 'Dashboard Overview'}
             {isActive('/admin/users') && 'Manage Users'}
             {location.pathname.startsWith('/admin/users/') && !isActive('/admin/users') && 'User Profile Detail'}
             {isActive('/admin/stores') && 'Manage Stores'}
           </div>
           <div className="flex items-center space-x-4">
-            <div className="text-right">
-              <p className="text-sm font-semibold text-slate-800">{user?.name}</p>
-              <p className="text-xs text-indigo-600 font-medium capitalize">{user?.role}</p>
+            <ThemeToggle />
+            <div className="text-right ml-4">
+              <p className="text-sm font-semibold text-slate-800 dark:text-slate-200">{user?.name}</p>
+              <p className="text-xs text-indigo-600 dark:text-indigo-400 font-medium capitalize">{user?.role}</p>
             </div>
             <button
               onClick={handleLogout}
-              className="px-4 py-2 text-sm font-medium text-slate-700 bg-slate-100 hover:bg-red-50 hover:text-red-600 rounded-lg transition-all border border-slate-200 hover:border-red-200 shadow-sm cursor-pointer"
+              className="ml-4 px-4 py-2 text-sm font-medium text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-slate-800 hover:bg-red-50 dark:hover:bg-red-900/30 hover:text-red-600 dark:hover:text-red-400 rounded-lg transition-all border border-slate-200 dark:border-slate-700 hover:border-red-200 dark:hover:border-red-800 shadow-sm cursor-pointer"
             >
               Logout
             </button>
@@ -82,7 +84,7 @@ const AdminLayout = ({ children }) => {
         </header>
 
         {/* Dynamic page contents */}
-        <main className="flex-1 overflow-x-hidden overflow-y-auto bg-slate-50 p-8">
+        <main className="flex-1 overflow-x-hidden overflow-y-auto bg-slate-50 dark:bg-slate-950 p-8 transition-colors duration-300">
           {children}
         </main>
       </div>

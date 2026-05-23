@@ -121,9 +121,9 @@ const UserStores = () => {
                   <span className="block text-[10px] font-bold text-slate-400 uppercase tracking-wider">Your Rating</span>
                   <span className="text-sm font-semibold text-slate-700 mt-0.5 block">
                     {store.userRating ? (
-                      <span className="text-indigo-600">★ {store.userRating} / 5</span>
+                      <span className="text-indigo-600 dark:text-indigo-400">★ {store.userRating} / 5</span>
                     ) : (
-                      <span className="text-slate-400">Not rated</span>
+                      <span className="text-slate-400 dark:text-slate-500">Not rated</span>
                     )}
                   </span>
                 </div>
