@@ -81,7 +81,7 @@ const OwnerDashboard = () => {
 
   return (
     <UserOwnerLayout>
-      <div className="mb-8 border-b border-slate-100 dark:border-slate-850 pb-6">
+      <div className="mb-8 border-b border-slate-100 dark:border-slate-800 pb-6">
         <h2 className="text-2xl font-bold text-slate-800 dark:text-slate-100">{data?.storeName || 'Store Owner'} Dashboard</h2>
         <p className="text-slate-500 dark:text-slate-400 text-sm mt-0.5">Real-time breakdown of reviews and rating metrics</p>
       </div>
@@ -89,7 +89,7 @@ const OwnerDashboard = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
         {/* Prominent Avg Rating */}
         <div className="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm flex items-center space-x-4">
-          <div className="p-3.5 bg-amber-50 dark:bg-amber-950/40 text-amber-600 dark:text-amber-450 rounded-xl animate-pulse">
+          <div className="p-3.5 bg-amber-50 dark:bg-amber-950/40 text-amber-600 dark:text-amber-400 rounded-xl animate-pulse">
             <span className="text-3xl font-extrabold">★</span>
           </div>
           <div>
@@ -160,7 +160,7 @@ const OwnerDashboard = () => {
                 sortedReviewers.map((r, i) => (
                   <tr key={i} className="hover:bg-slate-50 dark:hover:bg-slate-900/40 transition-colors">
                     <td className="px-6 py-4 font-semibold text-slate-900 dark:text-slate-100">{r.name}</td>
-                    <td className="px-6 py-4 text-slate-600 dark:text-slate-350">{r.email}</td>
+                    <td className="px-6 py-4 text-slate-600 dark:text-slate-300">{r.email}</td>
                     <td className="px-6 py-4">
                       <div className="flex items-center space-x-1">
                         <span className="text-amber-500 font-bold">★</span>

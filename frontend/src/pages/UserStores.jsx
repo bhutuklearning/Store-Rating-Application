@@ -102,7 +102,7 @@ const UserStores = () => {
           {stores.map((store) => (
             <div
               key={store.id}
-              className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-6 flex flex-col justify-between hover:shadow-md transition-shadow hover:border-slate-300 dark:hover:border-slate-650"
+              className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-6 flex flex-col justify-between hover:shadow-md transition-shadow hover:border-slate-300 dark:hover:border-slate-600"
             >
               <div>
                 <div className="flex justify-between items-start mb-3">

@@ -63,7 +63,7 @@ const OwnerProfile = () => {
 
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
           <div>
-            <label htmlFor="password" className="block text-xs font-bold text-slate-700 dark:text-slate-350 mb-1">
+            <label htmlFor="password" className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">
               New Password
             </label>
             <input
@@ -87,7 +87,7 @@ const OwnerProfile = () => {
           </div>
 
           <div>
-            <label htmlFor="confirmPassword" className="block text-xs font-bold text-slate-700 dark:text-slate-350 mb-1">
+            <label htmlFor="confirmPassword" className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">
               Confirm New Password
             </label>
             <input

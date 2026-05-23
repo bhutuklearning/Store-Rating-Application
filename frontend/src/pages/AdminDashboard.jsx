@@ -83,7 +83,7 @@ const AdminDashboard = () => {
 
       <div className="bg-white dark:bg-slate-800 p-8 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm">
         <h3 className="text-xl font-bold text-slate-800 dark:text-slate-100 mb-4">Welcome to the Administration Panel</h3>
-        <p className="text-slate-600 dark:text-slate-350 leading-relaxed">
+        <p className="text-slate-600 dark:text-slate-300 leading-relaxed">
           Use the left-hand navigation sidebar to access different admin modules. From here, you can manage user registrations (view profiles, create system administrators, normal users, or store owners), provision stores, link store owners, and review current aggregated store ratings across the system.
         </p>
       </div>

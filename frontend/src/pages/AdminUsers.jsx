@@ -217,8 +217,8 @@ const AdminUsers = () => {
                     className="hover:bg-slate-50 dark:hover:bg-slate-900/40 transition-colors cursor-pointer"
                   >
                     <td className="px-6 py-4 font-semibold text-slate-900 dark:text-slate-100">{u.name}</td>
-                    <td className="px-6 py-4 text-slate-600 dark:text-slate-350">{u.email}</td>
-                    <td className="px-6 py-4 text-slate-600 dark:text-slate-355 truncate max-w-xs">{u.address}</td>
+                    <td className="px-6 py-4 text-slate-600 dark:text-slate-300">{u.email}</td>
+                    <td className="px-6 py-4 text-slate-600 dark:text-slate-300 truncate max-w-xs">{u.address}</td>
                     <td className="px-6 py-4">
                       <span
                         className={`inline-flex px-2 py-1 rounded text-xs font-semibold ${

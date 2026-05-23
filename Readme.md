@@ -1,5 +1,7 @@
 # Store Rating and Assessment System
 
+![StoreRate Logo](frontend/public/logo.png)
+
 A production-ready, full-stack application designed to facilitate store evaluations, rating aggregations, and user profile management. Built using Node.js, Express, Prisma ORM, PostgreSQL (via Neon DB), React, and Tailwind CSS, the system features a robust role-based access control (RBAC) architecture separating Administrators, Store Owners, and Users (Customers).
 
 ---

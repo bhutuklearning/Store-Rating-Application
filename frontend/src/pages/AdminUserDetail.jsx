@@ -69,20 +69,20 @@ const AdminUserDetail = () => {
           </div>
 
           <div className="space-y-4 text-sm">
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-1 sm:gap-4 border-b border-slate-50 dark:border-slate-750/30 sm:border-none pb-2 sm:pb-0">
-              <span className="font-semibold text-slate-500 dark:text-slate-450">Account ID:</span>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-1 sm:gap-4 border-b border-slate-50 dark:border-slate-700/30 sm:border-none pb-2 sm:pb-0">
+              <span className="font-semibold text-slate-500 dark:text-slate-400">Account ID:</span>
               <span className="sm:col-span-2 text-slate-800 dark:text-slate-200 font-mono select-all break-all">{userDetail.id}</span>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-1 sm:gap-4 border-b border-slate-50 dark:border-slate-750/30 sm:border-none pb-2 sm:pb-0">
-              <span className="font-semibold text-slate-500 dark:text-slate-450">Role:</span>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-1 sm:gap-4 border-b border-slate-50 dark:border-slate-700/30 sm:border-none pb-2 sm:pb-0">
+              <span className="font-semibold text-slate-500 dark:text-slate-400">Role:</span>
               <span className="sm:col-span-2">
                 <span className="inline-flex px-2 py-0.5 rounded text-xs font-semibold bg-indigo-50 dark:bg-indigo-950/40 text-indigo-700 dark:text-indigo-400 border border-indigo-100 dark:border-indigo-900/50 uppercase">
                   {userDetail.role}
                 </span>
               </span>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-1 sm:gap-4 border-b border-slate-50 dark:border-slate-750/30 sm:border-none pb-2 sm:pb-0">
-              <span className="font-semibold text-slate-500 dark:text-slate-450">Registered On:</span>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-1 sm:gap-4 border-b border-slate-50 dark:border-slate-700/30 sm:border-none pb-2 sm:pb-0">
+              <span className="font-semibold text-slate-500 dark:text-slate-400">Registered On:</span>
               <span className="sm:col-span-2 text-slate-800 dark:text-slate-200">
                 {new Date(userDetail.createdAt).toLocaleDateString(undefined, {
                   year: 'numeric',
@@ -92,7 +92,7 @@ const AdminUserDetail = () => {
               </span>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-1 sm:gap-4">
-              <span className="font-semibold text-slate-500 dark:text-slate-450">Address:</span>
+              <span className="font-semibold text-slate-500 dark:text-slate-400">Address:</span>
               <span className="sm:col-span-2 text-slate-800 dark:text-slate-200 leading-relaxed">{userDetail.address || 'Not Provided'}</span>
             </div>
           </div>
@@ -119,14 +119,14 @@ const AdminUserDetail = () => {
                   <h4 className="font-bold text-indigo-600 dark:text-indigo-400 text-lg">{userDetail.store.name}</h4>
                   <p className="text-xs text-slate-500 dark:text-slate-400">{userDetail.store.email}</p>
                 </div>
-                <div className="space-y-1.5 text-xs text-slate-650 dark:text-slate-350">
+                <div className="space-y-1.5 text-xs text-slate-500 dark:text-slate-300">
                   <p>
-                    <span className="font-semibold text-slate-500 dark:text-slate-455">Address: </span>
+                    <span className="font-semibold text-slate-500 dark:text-slate-400">Address: </span>
                     {userDetail.store.address}
                   </p>
                 </div>
                 <div className="pt-4 border-t border-slate-100 dark:border-slate-700 flex items-center justify-between">
-                  <span className="text-sm font-semibold text-slate-500 dark:text-slate-450">Store Average Rating</span>
+                  <span className="text-sm font-semibold text-slate-500 dark:text-slate-400">Store Average Rating</span>
                   <div className="flex items-center space-x-1">
                     <span className="text-amber-500 font-bold text-lg">★</span>
                     <span className="font-bold text-slate-800 dark:text-slate-200 text-lg">
