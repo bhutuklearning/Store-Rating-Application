@@ -88,14 +88,14 @@ const AdminUsers = () => {
   return (
     <AdminLayout>
       {error && (
-        <div className="mb-6 bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg text-sm text-center">
+        <div className="mb-6 bg-red-50 dark:bg-red-950/30 border border-red-200 dark:border-red-900/50 text-red-700 dark:text-red-400 px-4 py-3 rounded-lg text-sm text-center">
           {error}
         </div>
       )}
 
       {/* Action Header */}
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
-        <h2 className="text-xl font-bold text-slate-800">User Directory</h2>
+        <h2 className="text-xl font-bold text-slate-800 dark:text-slate-100">User Directory</h2>
         <button
           onClick={() => {
             setModalError('');
@@ -108,104 +108,104 @@ const AdminUsers = () => {
       </div>
 
       {/* Filter Bar */}
-      <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm mb-6">
-        <h3 className="text-sm font-semibold text-slate-700 mb-4">Filter Records</h3>
+      <div className="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm mb-6">
+        <h3 className="text-sm font-semibold text-slate-700 dark:text-slate-200 mb-4">Filter Records</h3>
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
           <div>
-            <label className="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1">Name</label>
+            <label className="block text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1">Name</label>
             <input
               type="text"
               name="name"
               value={filters.name}
               onChange={handleFilterChange}
               placeholder="Search by name..."
-              className="w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 bg-white"
+              className="w-full px-3 py-2 border border-slate-300 dark:border-slate-700 rounded-lg text-sm focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100"
             />
           </div>
           <div>
-            <label className="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1">Email</label>
+            <label className="block text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1">Email</label>
             <input
               type="text"
               name="email"
               value={filters.email}
               onChange={handleFilterChange}
               placeholder="Search by email..."
-              className="w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 bg-white"
+              className="w-full px-3 py-2 border border-slate-300 dark:border-slate-700 rounded-lg text-sm focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100"
             />
           </div>
           <div>
-            <label className="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1">Address</label>
+            <label className="block text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1">Address</label>
             <input
               type="text"
               name="address"
               value={filters.address}
               onChange={handleFilterChange}
               placeholder="Search by address..."
-              className="w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 bg-white"
+              className="w-full px-3 py-2 border border-slate-300 dark:border-slate-700 rounded-lg text-sm focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100"
             />
           </div>
           <div>
-            <label className="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1">Role</label>
+            <label className="block text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1">Role</label>
             <select
               name="role"
               value={filters.role}
               onChange={handleFilterChange}
-              className="w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 bg-white dark:bg-slate-800 dark:border-slate-700 text-slate-900 dark:text-slate-100"
+              className="w-full px-3 py-2 border border-slate-300 dark:border-slate-700 rounded-lg text-sm focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100"
             >
-              <option value="">All Roles</option>
-              <option value="USER">User</option>
-              <option value="STORE_OWNER">Store Owner</option>
-              <option value="ADMIN">System Administrator</option>
+              <option value="" className="bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100">All Roles</option>
+              <option value="USER" className="bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100">User</option>
+              <option value="STORE_OWNER" className="bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100">Store Owner</option>
+              <option value="ADMIN" className="bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100">System Administrator</option>
             </select>
           </div>
         </div>
       </div>
 
       {/* Users Table */}
-      <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+      <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm overflow-hidden">
         <div className="overflow-x-auto">
-          <table className="min-w-full divide-y divide-slate-200 text-left text-sm">
-            <thead className="bg-slate-50 text-slate-500 uppercase text-xs tracking-wider">
+          <table className="min-w-full divide-y divide-slate-200 dark:divide-slate-700 text-left text-sm">
+            <thead className="bg-slate-50 dark:bg-slate-900/60 text-slate-500 dark:text-slate-400 uppercase text-xs tracking-wider">
               <tr>
                 <th
                   onClick={() => handleSort('name')}
-                  className="px-6 py-4 font-semibold cursor-pointer hover:bg-slate-100 hover:text-slate-700 transition-colors"
+                  className="px-6 py-4 font-semibold cursor-pointer hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-700 dark:hover:text-slate-300 transition-colors"
                 >
                   Name {sort.field === 'name' && (sort.order === 'asc' ? '▲' : '▼')}
                 </th>
                 <th
                   onClick={() => handleSort('email')}
-                  className="px-6 py-4 font-semibold cursor-pointer hover:bg-slate-100 hover:text-slate-700 transition-colors"
+                  className="px-6 py-4 font-semibold cursor-pointer hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-700 dark:hover:text-slate-300 transition-colors"
                 >
                   Email {sort.field === 'email' && (sort.order === 'asc' ? '▲' : '▼')}
                 </th>
                 <th
                   onClick={() => handleSort('address')}
-                  className="px-6 py-4 font-semibold cursor-pointer hover:bg-slate-100 hover:text-slate-700 transition-colors"
+                  className="px-6 py-4 font-semibold cursor-pointer hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-700 dark:hover:text-slate-300 transition-colors"
                 >
                   Address {sort.field === 'address' && (sort.order === 'asc' ? '▲' : '▼')}
                 </th>
                 <th
                   onClick={() => handleSort('role')}
-                  className="px-6 py-4 font-semibold cursor-pointer hover:bg-slate-100 hover:text-slate-700 transition-colors"
+                  className="px-6 py-4 font-semibold cursor-pointer hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-700 dark:hover:text-slate-300 transition-colors"
                 >
                   Role {sort.field === 'role' && (sort.order === 'asc' ? '▲' : '▼')}
                 </th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-slate-100">
+            <tbody className="divide-y divide-slate-100 dark:divide-slate-700">
               {loading ? (
                 <tr>
                   <td colSpan="4" className="text-center py-8">
                     <div className="flex justify-center items-center space-x-2">
                       <div className="h-5 w-5 animate-spin rounded-full border-2 border-indigo-600 border-t-transparent"></div>
-                      <span className="text-slate-500 font-medium">Refreshing list...</span>
+                      <span className="text-slate-500 dark:text-slate-400 font-medium">Refreshing list...</span>
                     </div>
                   </td>
                 </tr>
               ) : users.length === 0 ? (
                 <tr>
-                  <td colSpan="4" className="text-center py-8 text-slate-500">
+                  <td colSpan="4" className="text-center py-8 text-slate-500 dark:text-slate-400">
                     No matching users found.
                   </td>
                 </tr>
@@ -214,11 +214,11 @@ const AdminUsers = () => {
                   <tr
                     key={u.id}
                     onClick={() => navigate(`/admin/users/${u.id}`)}
-                    className="hover:bg-slate-50 transition-colors cursor-pointer"
+                    className="hover:bg-slate-50 dark:hover:bg-slate-900/40 transition-colors cursor-pointer"
                   >
-                    <td className="px-6 py-4 font-semibold text-slate-900">{u.name}</td>
-                    <td className="px-6 py-4 text-slate-600">{u.email}</td>
-                    <td className="px-6 py-4 text-slate-600 truncate max-w-xs">{u.address}</td>
+                    <td className="px-6 py-4 font-semibold text-slate-900 dark:text-slate-100">{u.name}</td>
+                    <td className="px-6 py-4 text-slate-600 dark:text-slate-350">{u.email}</td>
+                    <td className="px-6 py-4 text-slate-600 dark:text-slate-355 truncate max-w-xs">{u.address}</td>
                     <td className="px-6 py-4">
                       <span
                         className={`inline-flex px-2 py-1 rounded text-xs font-semibold ${
@@ -242,13 +242,13 @@ const AdminUsers = () => {
 
       {/* Add User Modal */}
       {isModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/40 backdrop-blur-xs px-4">
-          <div className="bg-white rounded-2xl shadow-xl border border-slate-200 w-full max-w-lg overflow-hidden animate-in fade-in zoom-in-95 duration-150">
-            <div className="px-6 py-4 border-b border-slate-100 bg-slate-50 flex justify-between items-center">
-              <h3 className="font-bold text-slate-800 text-lg">Add New User Account</h3>
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/40 dark:bg-slate-950/60 backdrop-blur-xs px-4">
+          <div className="bg-white dark:bg-slate-900 rounded-2xl shadow-xl border border-slate-200 dark:border-slate-800 w-full max-w-lg overflow-hidden animate-in fade-in zoom-in-95 duration-150">
+            <div className="px-6 py-4 border-b border-slate-100 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50 flex justify-between items-center">
+              <h3 className="font-bold text-slate-800 dark:text-slate-100 text-lg">Add New User Account</h3>
               <button
                 onClick={() => setIsModalOpen(false)}
-                className="text-slate-400 hover:text-slate-600 text-2xl font-bold cursor-pointer"
+                className="text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:hover:text-slate-300 text-2xl font-bold cursor-pointer"
               >
                 &times;
               </button>
@@ -256,13 +256,13 @@ const AdminUsers = () => {
             
             <form onSubmit={handleSubmit(onCreateUser)} className="p-6 space-y-4">
               {modalError && (
-                <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-2.5 rounded-lg text-xs text-center">
+                <div className="bg-red-50 dark:bg-red-950/30 border border-red-200 dark:border-red-900/50 text-red-700 dark:text-red-400 px-4 py-2.5 rounded-lg text-xs text-center">
                   {modalError}
                 </div>
               )}
 
               <div>
-                <label className="block text-xs font-bold text-slate-700 mb-1">Full Name</label>
+                <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">Full Name</label>
                 <input
                   type="text"
                   {...register('name', {
@@ -270,14 +270,14 @@ const AdminUsers = () => {
                     minLength: { value: 20, message: 'Name must be 20–60 characters' },
                     maxLength: { value: 60, message: 'Name cannot exceed 60 characters' },
                   })}
-                  className="w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500"
+                  className="w-full px-3 py-2 border border-slate-300 dark:border-slate-700 rounded-lg text-sm focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100"
                   placeholder="System Administrator etc. (20-60 chars)"
                 />
-                {errors.name && <p className="mt-1 text-xs text-red-600">{errors.name.message}</p>}
+                {errors.name && <p className="mt-1 text-xs text-red-600 dark:text-red-400">{errors.name.message}</p>}
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-slate-700 mb-1">Email Address</label>
+                <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">Email Address</label>
                 <input
                   type="email"
                   {...register('email', {
@@ -287,28 +287,28 @@ const AdminUsers = () => {
                       message: 'Invalid email address',
                     },
                   })}
-                  className="w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500"
+                  className="w-full px-3 py-2 border border-slate-300 dark:border-slate-700 rounded-lg text-sm focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100"
                   placeholder="name@example.com"
                 />
-                {errors.email && <p className="mt-1 text-xs text-red-600">{errors.email.message}</p>}
+                {errors.email && <p className="mt-1 text-xs text-red-600 dark:text-red-400">{errors.email.message}</p>}
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-slate-700 mb-1">Address</label>
+                <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">Address</label>
                 <textarea
                   rows="2"
                   {...register('address', {
                     required: 'Address is required',
                     maxLength: { value: 400, message: 'Address cannot exceed 400 characters' },
                   })}
-                  className="w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500"
+                  className="w-full px-3 py-2 border border-slate-300 dark:border-slate-700 rounded-lg text-sm focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100"
                   placeholder="Address details (max 400 chars)"
                 />
-                {errors.address && <p className="mt-1 text-xs text-red-600">{errors.address.message}</p>}
+                {errors.address && <p className="mt-1 text-xs text-red-600 dark:text-red-400">{errors.address.message}</p>}
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-slate-700 mb-1">Password</label>
+                <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">Password</label>
                 <input
                   type="password"
                   {...register('password', {
@@ -320,30 +320,30 @@ const AdminUsers = () => {
                       hasSpecialChar: (v) => /[!@#$%^&*(),.?":{}|<>]/.test(v) || 'Password must contain at least one special character',
                     },
                   })}
-                  className="w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500"
+                  className="w-full px-3 py-2 border border-slate-300 dark:border-slate-700 rounded-lg text-sm focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100"
                   placeholder="Password (8-16 chars, 1 upper, 1 special)"
                 />
-                {errors.password && <p className="mt-1 text-xs text-red-600">{errors.password.message}</p>}
+                {errors.password && <p className="mt-1 text-xs text-red-600 dark:text-red-400">{errors.password.message}</p>}
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-slate-700 mb-1">Account Role</label>
+                <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">Account Role</label>
                 <select
                   {...register('role', { required: 'Role is required' })}
-                  className="w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 bg-white"
+                  className="w-full px-3 py-2 border border-slate-300 dark:border-slate-700 rounded-lg text-sm focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100"
                 >
-                  <option value="USER">User (Reviewer)</option>
-                  <option value="STORE_OWNER">Store Owner</option>
-                  <option value="ADMIN">System Administrator</option>
+                  <option value="USER" className="bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100">User (Reviewer)</option>
+                  <option value="STORE_OWNER" className="bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100">Store Owner</option>
+                  <option value="ADMIN" className="bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100">System Administrator</option>
                 </select>
-                {errors.role && <p className="mt-1 text-xs text-red-600">{errors.role.message}</p>}
+                {errors.role && <p className="mt-1 text-xs text-red-600 dark:text-red-400">{errors.role.message}</p>}
               </div>
 
-              <div className="pt-4 border-t border-slate-100 flex justify-end space-x-3">
+              <div className="pt-4 border-t border-slate-100 dark:border-slate-800 flex justify-end space-x-3">
                 <button
                   type="button"
                   onClick={() => setIsModalOpen(false)}
-                  className="px-4 py-2 border border-slate-300 hover:bg-slate-100 text-slate-700 text-sm font-medium rounded-lg transition-colors cursor-pointer"
+                  className="px-4 py-2 border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 text-sm font-medium rounded-lg transition-colors cursor-pointer"
                 >
                   Cancel
                 </button>

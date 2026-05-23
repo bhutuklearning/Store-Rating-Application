@@ -107,14 +107,14 @@ const AdminStores = () => {
   return (
     <AdminLayout>
       {error && (
-        <div className="mb-6 bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg text-sm text-center">
+        <div className="mb-6 bg-red-50 dark:bg-red-950/30 border border-red-200 dark:border-red-900/50 text-red-700 dark:text-red-400 px-4 py-3 rounded-lg text-sm text-center">
           {error}
         </div>
       )}
 
       {/* Action Header */}
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
-        <h2 className="text-xl font-bold text-slate-800 font-sans">Store Provisioning Directory</h2>
+        <h2 className="text-xl font-bold text-slate-800 dark:text-slate-100 font-sans">Store Provisioning Directory</h2>
         <button
           onClick={openModal}
           className="px-5 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-lg text-sm shadow-md hover:shadow-lg transition-all cursor-pointer"
@@ -124,109 +124,109 @@ const AdminStores = () => {
       </div>
 
       {/* Filter Bar */}
-      <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm mb-6">
-        <h3 className="text-sm font-semibold text-slate-700 mb-4">Filter Records</h3>
+      <div className="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm mb-6">
+        <h3 className="text-sm font-semibold text-slate-700 dark:text-slate-200 mb-4">Filter Records</h3>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div>
-            <label className="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1">Store Name</label>
+            <label className="block text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1">Store Name</label>
             <input
               type="text"
               name="name"
               value={filters.name}
               onChange={handleFilterChange}
               placeholder="Search by store name..."
-              className="w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 bg-white"
+              className="w-full px-3 py-2 border border-slate-300 dark:border-slate-700 rounded-lg text-sm focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100"
             />
           </div>
           <div>
-            <label className="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1">Email</label>
+            <label className="block text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1">Email</label>
             <input
               type="text"
               name="email"
               value={filters.email}
               onChange={handleFilterChange}
               placeholder="Search by email..."
-              className="w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 bg-white"
+              className="w-full px-3 py-2 border border-slate-300 dark:border-slate-700 rounded-lg text-sm focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100"
             />
           </div>
           <div>
-            <label className="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1">Address</label>
+            <label className="block text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1">Address</label>
             <input
               type="text"
               name="address"
               value={filters.address}
               onChange={handleFilterChange}
               placeholder="Search by address..."
-              className="w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 bg-white"
+              className="w-full px-3 py-2 border border-slate-300 dark:border-slate-700 rounded-lg text-sm focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100"
             />
           </div>
         </div>
       </div>
 
       {/* Stores Table */}
-      <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+      <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm overflow-hidden">
         <div className="overflow-x-auto">
-          <table className="min-w-full divide-y divide-slate-200 text-left text-sm">
-            <thead className="bg-slate-50 text-slate-500 uppercase text-xs tracking-wider">
+          <table className="min-w-full divide-y divide-slate-200 dark:divide-slate-700 text-left text-sm">
+            <thead className="bg-slate-50 dark:bg-slate-900/60 text-slate-500 dark:text-slate-400 uppercase text-xs tracking-wider">
               <tr>
                 <th
                   onClick={() => handleSort('name')}
-                  className="px-6 py-4 font-semibold cursor-pointer hover:bg-slate-100 hover:text-slate-700 transition-colors"
+                  className="px-6 py-4 font-semibold cursor-pointer hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-700 dark:hover:text-slate-300 transition-colors"
                 >
                   Name {sort.field === 'name' && (sort.order === 'asc' ? '▲' : '▼')}
                 </th>
                 <th
                   onClick={() => handleSort('email')}
-                  className="px-6 py-4 font-semibold cursor-pointer hover:bg-slate-100 hover:text-slate-700 transition-colors"
+                  className="px-6 py-4 font-semibold cursor-pointer hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-700 dark:hover:text-slate-300 transition-colors"
                 >
                   Email {sort.field === 'email' && (sort.order === 'asc' ? '▲' : '▼')}
                 </th>
                 <th
                   onClick={() => handleSort('address')}
-                  className="px-6 py-4 font-semibold cursor-pointer hover:bg-slate-100 hover:text-slate-700 transition-colors"
+                  className="px-6 py-4 font-semibold cursor-pointer hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-700 dark:hover:text-slate-300 transition-colors"
                 >
                   Address {sort.field === 'address' && (sort.order === 'asc' ? '▲' : '▼')}
                 </th>
                 <th
                   onClick={() => handleSort('averageRating')}
-                  className="px-6 py-4 font-semibold cursor-pointer hover:bg-slate-100 hover:text-slate-700 transition-colors"
+                  className="px-6 py-4 font-semibold cursor-pointer hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-700 dark:hover:text-slate-300 transition-colors"
                 >
                   Rating {sort.field === 'averageRating' && (sort.order === 'asc' ? '▲' : '▼')}
                 </th>
-                <th className="px-6 py-4 font-semibold text-slate-500">Owner Name</th>
+                <th className="px-6 py-4 font-semibold text-slate-500 dark:text-slate-400">Owner Name</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-slate-100">
+            <tbody className="divide-y divide-slate-100 dark:divide-slate-700">
               {loading ? (
                 <tr>
                   <td colSpan="5" className="text-center py-8">
                     <div className="flex justify-center items-center space-x-2">
                       <div className="h-5 w-5 animate-spin rounded-full border-2 border-indigo-600 border-t-transparent"></div>
-                      <span className="text-slate-500 font-medium">Refreshing list...</span>
+                      <span className="text-slate-500 dark:text-slate-400 font-medium">Refreshing list...</span>
                     </div>
                   </td>
                 </tr>
               ) : stores.length === 0 ? (
                 <tr>
-                  <td colSpan="5" className="text-center py-8 text-slate-500">
+                  <td colSpan="5" className="text-center py-8 text-slate-500 dark:text-slate-400">
                     No matching stores found.
                   </td>
                 </tr>
               ) : (
                 stores.map((s) => (
-                  <tr key={s.id} className="hover:bg-slate-50 transition-colors">
-                    <td className="px-6 py-4 font-semibold text-slate-900">{s.name}</td>
-                    <td className="px-6 py-4 text-slate-600">{s.email}</td>
-                    <td className="px-6 py-4 text-slate-600 truncate max-w-xs">{s.address}</td>
+                  <tr key={s.id} className="hover:bg-slate-50 dark:hover:bg-slate-900/40 transition-colors">
+                    <td className="px-6 py-4 font-semibold text-slate-900 dark:text-slate-100">{s.name}</td>
+                    <td className="px-6 py-4 text-slate-600 dark:text-slate-300">{s.email}</td>
+                    <td className="px-6 py-4 text-slate-600 dark:text-slate-300 truncate max-w-xs">{s.address}</td>
                     <td className="px-6 py-4">
                       <div className="flex items-center space-x-1.5">
                         <span className="text-amber-500 font-bold">★</span>
-                        <span className="font-bold text-slate-800">
+                        <span className="font-bold text-slate-800 dark:text-slate-200">
                           {s.averageRating > 0 ? s.averageRating.toFixed(1) : '0.0'}
                         </span>
                       </div>
                     </td>
-                    <td className="px-6 py-4 text-slate-700 font-medium">{s.ownerName}</td>
+                    <td className="px-6 py-4 text-slate-700 dark:text-slate-300 font-medium">{s.ownerName}</td>
                   </tr>
                 ))
               )}
@@ -237,13 +237,13 @@ const AdminStores = () => {
 
       {/* Add Store Modal */}
       {isModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/40 backdrop-blur-xs px-4">
-          <div className="bg-white rounded-2xl shadow-xl border border-slate-200 w-full max-w-lg overflow-hidden animate-in fade-in zoom-in-95 duration-150">
-            <div className="px-6 py-4 border-b border-slate-100 bg-slate-50 flex justify-between items-center">
-              <h3 className="font-bold text-slate-800 text-lg">Add New Store</h3>
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/40 dark:bg-slate-950/60 backdrop-blur-xs px-4">
+          <div className="bg-white dark:bg-slate-900 rounded-2xl shadow-xl border border-slate-200 dark:border-slate-800 w-full max-w-lg overflow-hidden animate-in fade-in zoom-in-95 duration-150">
+            <div className="px-6 py-4 border-b border-slate-100 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50 flex justify-between items-center">
+              <h3 className="font-bold text-slate-800 dark:text-slate-100 text-lg">Add New Store</h3>
               <button
                 onClick={() => setIsModalOpen(false)}
-                className="text-slate-400 hover:text-slate-600 text-2xl font-bold cursor-pointer"
+                className="text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:hover:text-slate-300 text-2xl font-bold cursor-pointer"
               >
                 &times;
               </button>
@@ -251,24 +251,24 @@ const AdminStores = () => {
             
             <form onSubmit={handleSubmit(onCreateStore)} className="p-6 space-y-4">
               {modalError && (
-                <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-2.5 rounded-lg text-xs text-center">
+                <div className="bg-red-50 dark:bg-red-950/30 border border-red-200 dark:border-red-900/50 text-red-700 dark:text-red-400 px-4 py-2.5 rounded-lg text-xs text-center">
                   {modalError}
                 </div>
               )}
 
               <div>
-                <label className="block text-xs font-bold text-slate-700 mb-1">Store Name</label>
+                <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">Store Name</label>
                 <input
                   type="text"
                   {...register('name', { required: 'Store name is required' })}
-                  className="w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 bg-white"
+                  className="w-full px-3 py-2 border border-slate-300 dark:border-slate-700 rounded-lg text-sm focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100"
                   placeholder="Enter store name"
                 />
-                {errors.name && <p className="mt-1 text-xs text-red-600">{errors.name.message}</p>}
+                {errors.name && <p className="mt-1 text-xs text-red-600 dark:text-red-400">{errors.name.message}</p>}
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-slate-700 mb-1">Store Email</label>
+                <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">Store Email</label>
                 <input
                   type="email"
                   {...register('email', {
@@ -278,48 +278,48 @@ const AdminStores = () => {
                       message: 'Invalid email address',
                     },
                   })}
-                  className="w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 bg-white"
+                  className="w-full px-3 py-2 border border-slate-300 dark:border-slate-700 rounded-lg text-sm focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100"
                   placeholder="store@example.com"
                 />
-                {errors.email && <p className="mt-1 text-xs text-red-600">{errors.email.message}</p>}
+                {errors.email && <p className="mt-1 text-xs text-red-600 dark:text-red-400">{errors.email.message}</p>}
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-slate-700 mb-1">Store Address</label>
+                <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">Store Address</label>
                 <textarea
                   rows="2"
                   {...register('address', { required: 'Store address is required' })}
-                  className="w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 bg-white"
+                  className="w-full px-3 py-2 border border-slate-300 dark:border-slate-700 rounded-lg text-sm focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100"
                   placeholder="Enter store address"
                 />
-                {errors.address && <p className="mt-1 text-xs text-red-600">{errors.address.message}</p>}
+                {errors.address && <p className="mt-1 text-xs text-red-600 dark:text-red-400">{errors.address.message}</p>}
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-slate-700 mb-1">Store Owner</label>
+                <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">Store Owner</label>
                 {ownersLoading ? (
-                  <p className="text-sm text-slate-500">Loading store owners...</p>
+                  <p className="text-sm text-slate-500 dark:text-slate-400">Loading store owners...</p>
                 ) : (
                   <select
                     {...register('ownerId', { required: 'Please select an owner' })}
-                    className="w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 bg-white"
+                    className="w-full px-3 py-2 border border-slate-300 dark:border-slate-700 rounded-lg text-sm focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100"
                   >
-                    <option value="">Select a Store Owner...</option>
+                    <option value="" className="bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100">Select a Store Owner...</option>
                     {owners.map((owner) => (
-                      <option key={owner.id} value={owner.id}>
+                      <option key={owner.id} value={owner.id} className="bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100">
                         {owner.name} ({owner.email})
                       </option>
                     ))}
                   </select>
                 )}
-                {errors.ownerId && <p className="mt-1 text-xs text-red-600">{errors.ownerId.message}</p>}
+                {errors.ownerId && <p className="mt-1 text-xs text-red-600 dark:text-red-400">{errors.ownerId.message}</p>}
               </div>
 
-              <div className="pt-4 border-t border-slate-100 flex justify-end space-x-3">
+              <div className="pt-4 border-t border-slate-100 dark:border-slate-800 flex justify-end space-x-3">
                 <button
                   type="button"
                   onClick={() => setIsModalOpen(false)}
-                  className="px-4 py-2 border border-slate-300 hover:bg-slate-100 text-slate-700 text-sm font-medium rounded-lg transition-colors cursor-pointer"
+                  className="px-4 py-2 border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 text-sm font-medium rounded-lg transition-colors cursor-pointer"
                 >
                   Cancel
                 </button>

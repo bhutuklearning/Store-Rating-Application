@@ -43,3 +43,5 @@ Desktop.ini
 package-lock.json
 pnpm-lock.yaml
 yarn.lock
+
+create_test_accounts.js

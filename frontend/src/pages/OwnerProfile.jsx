@@ -45,25 +45,25 @@ const OwnerProfile = () => {
     <UserOwnerLayout>
       <div className="max-w-md mx-auto py-8">
         <div className="mb-6">
-          <h2 className="text-xl font-bold text-slate-800">Change Owner Password</h2>
-          <p className="text-slate-500 text-sm mt-0.5">Keep your account secure by updating your password regularly</p>
+          <h2 className="text-xl font-bold text-slate-800 dark:text-slate-100">Change Owner Password</h2>
+          <p className="text-slate-500 dark:text-slate-400 text-sm mt-0.5">Keep your account secure by updating your password regularly</p>
         </div>
 
         {successMsg && (
-          <div className="mb-4 bg-emerald-50 border border-emerald-200 text-emerald-700 px-4 py-2.5 rounded-lg text-sm text-center">
+          <div className="mb-4 bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-900/50 text-emerald-700 dark:text-emerald-400 px-4 py-2.5 rounded-lg text-sm text-center">
             {successMsg}
           </div>
         )}
 
         {errorMsg && (
-          <div className="mb-4 bg-red-50 border border-red-200 text-red-700 px-4 py-2.5 rounded-lg text-sm text-center">
+          <div className="mb-4 bg-red-50 dark:bg-red-950/30 border border-red-200 dark:border-red-900/50 text-red-700 dark:text-red-400 px-4 py-2.5 rounded-lg text-sm text-center">
             {errorMsg}
           </div>
         )}
 
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
           <div>
-            <label htmlFor="password" className="block text-xs font-bold text-slate-700 mb-1">
+            <label htmlFor="password" className="block text-xs font-bold text-slate-700 dark:text-slate-350 mb-1">
               New Password
             </label>
             <input
@@ -78,16 +78,16 @@ const OwnerProfile = () => {
                   hasSpecialChar: (v) => /[!@#$%^&*(),.?":{}|<>]/.test(v) || 'Password must contain at least one special character',
                 },
               })}
-              className="w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 bg-white"
+              className="w-full px-3 py-2 border border-slate-300 dark:border-slate-700 rounded-lg text-sm focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100"
               placeholder="••••••••"
             />
             {errors.password && (
-              <p className="mt-1 text-xs text-red-600 font-medium">{errors.password.message}</p>
+              <p className="mt-1 text-xs text-red-600 dark:text-red-400 font-medium">{errors.password.message}</p>
             )}
           </div>
 
           <div>
-            <label htmlFor="confirmPassword" className="block text-xs font-bold text-slate-700 mb-1">
+            <label htmlFor="confirmPassword" className="block text-xs font-bold text-slate-700 dark:text-slate-350 mb-1">
               Confirm New Password
             </label>
             <input
@@ -96,11 +96,11 @@ const OwnerProfile = () => {
               {...register('confirmPassword', {
                 required: 'Please confirm your new password',
               })}
-              className="w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 bg-white"
+              className="w-full px-3 py-2 border border-slate-300 dark:border-slate-700 rounded-lg text-sm focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100"
               placeholder="••••••••"
             />
             {errors.confirmPassword && (
-              <p className="mt-1 text-xs text-red-600 font-medium">{errors.confirmPassword.message}</p>
+              <p className="mt-1 text-xs text-red-600 dark:text-red-400 font-medium">{errors.confirmPassword.message}</p>
             )}
           </div>
 
